@@ -1,14 +1,15 @@
---- ext/config/request-logging.xml.orig	2016-10-03 15:59:33.275950136 -0700
-+++ ext/config/request-logging.xml	2016-10-03 16:00:07.020192163 -0700
-@@ -1,9 +1,9 @@
+--- ext/config/request-logging.xml.orig	2016-12-03 22:32:37.248735656 -0800
++++ ext/config/request-logging.xml	2016-12-03 22:37:39.489420010 -0800
+@@ -1,10 +1,10 @@
  <configuration debug="false" scan="true">
      <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 -        <file>/var/log/puppetlabs/puppetserver/puppetserver-access.log</file>
 +        <file>/var/log/puppetserver/puppetserver-access.log</file>
          <append>true</append>
-         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy"><!-- rollover daily -->
--            <fileNamePattern>/var/log/puppetlabs/puppetserver/puppetserver-access-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+             <!-- rollover daily -->
+-            <fileNamePattern>/var/log/puppetlabs/puppetserver/puppetserver-access-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
 +            <fileNamePattern>/var/log/puppetserver/puppetserver-access-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
-             <!-- each file should be at most 10MB, keep 90 days worth of history, but at most 1GB total-->
-             <maxFileSize>10MB</maxFileSize>
+             <!-- each file should be at most 200MB, keep 90 days worth of history, but at most 1GB total-->
+             <maxFileSize>200MB</maxFileSize>
              <maxHistory>90</maxHistory>
