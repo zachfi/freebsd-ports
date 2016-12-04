@@ -15,3 +15,4 @@
 @(,,755) %%DATADIR%%/cli/apps/irb
 @(,,755) %%DATADIR%%/cli/apps/ruby
 @dir(puppet,puppet,750) /var/log/puppetserver
+@dir(puppet,puppet,750) /var/puppet/server
