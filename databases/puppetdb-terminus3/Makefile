@@ -2,6 +2,7 @@
 
 PORTNAME=	puppetdb-terminus3
 PORTVERSION=	3.2.4
+PORTREVISION	1
 CATEGORIES=	databases ruby
 MASTER_SITES=	http://downloads.puppetlabs.com/puppetdb/
 DISTNAME=	puppetdb-${PORTVERSION}
