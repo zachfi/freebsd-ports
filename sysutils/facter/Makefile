@@ -15,6 +15,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libyaml-cpp.so:devel/yaml-cpp
 
+BUILD_DEPENDS=	LeathermanConfig.cmake:devel/leatherman
+
 PLIST_SUB+=	PORTVERSION="${PORTVERSION}"
 
 USE_LDCONFIG=	yes
