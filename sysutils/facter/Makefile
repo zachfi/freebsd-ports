@@ -15,7 +15,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libyaml-cpp.so:devel/yaml-cpp
 
-BUILD_DEPENDS=	leatherman>=0:devel/leatherman
+BUILD_DEPENDS=	leatherman>=0:devel/leatherman \
+		cpp-hocon>=0:devel/cpp-hocon
 
 PLIST_SUB+=	PORTVERSION="${PORTVERSION}"
 
