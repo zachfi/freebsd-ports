@@ -1,4 +1,4 @@
-# $FreeBSD: head/sysutils/puppetserver/Makefile 428145 2016-12-08 17:41:39Z swills $
+# $FreeBSD: head/sysutils/puppetserver/Makefile 432998 2017-02-01 10:53:21Z krion $
 
 PORTNAME=	puppetserver
 PORTVERSION=	2.7.2
@@ -28,8 +28,6 @@ GROUPS=		puppet
 SUB_LIST=	JAVA_HOME=${JAVA_HOME}
 SUB_FILES=	pkg-message
 
-PKGMESSAGE=	${WRKDIR}/pkg-message
-
 OPTIONS_DEFAULT=	RFACTER
 OPTIONS_RADIO=		FACTER
 OPTIONS_RADIO_FACTER=	CFACTER RFACTER
@@ -58,14 +56,11 @@ post-patch:
 .endfor
 
 do-install:
-	@${MKDIR} ${STAGEDIR}${DATADIR}
-	@${MKDIR} ${STAGEDIR}${DATADIR}/cli
 	@${MKDIR} ${STAGEDIR}${DATADIR}/cli/apps
 	@${MKDIR} ${STAGEDIR}${ETCDIR}
 	@${MKDIR} ${STAGEDIR}${ETCDIR}/conf.d
 	@${MKDIR} ${STAGEDIR}${ETCDIR}/services.d
 	@${MKDIR} ${STAGEDIR}${PREFIX}/etc/puppet/code
-	@${MKDIR} ${STAGEDIR}${PREFIX}/bin
 	@${MKDIR} ${STAGEDIR}/var/log/puppetserver
 	@${MKDIR} ${STAGEDIR}/var/puppet/server
 	${INSTALL_DATA} ${WRKSRC}/puppet-server-release.jar ${STAGEDIR}${DATADIR}/puppet-server-release.jar
