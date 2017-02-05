@@ -12,8 +12,10 @@ COMMENT=	Configuration management framework written in Ruby
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	rubygem-json_pure>=0:devel/rubygem-json_pure
-RUN_DEPENDS=	rubygem-json_pure>=0:devel/rubygem-json_pure \
+BUILD_DEPENDS=	rubygem-hiera>=2.0:sysutils/rubygem-hiera \
+		rubygem-json_pure>=0:devel/rubygem-json_pure
+RUN_DEPENDS=	rubygem-hiera>=2.0:sysutils/rubygem-hiera \
+		rubygem-json_pure>=0:devel/rubygem-json_pure \
 		rubygem-ruby-augeas>=0:textproc/rubygem-ruby-augeas
 
 USES=		cpe
