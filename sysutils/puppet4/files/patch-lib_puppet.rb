@@ -4,7 +4,7 @@
  
    class << self
      if Puppet::GETTEXT_AVAILABLE
-+      freebsd_locale_path = '%%ETCDIR%%/share/locales'
++      freebsd_locale_path = '/var/puppet/share/locales'
        # e.g. ~/code/puppet/locales. Also when running as a gem.
        local_locale_path = File.absolute_path('../locales', File.dirname(__FILE__))
        # e.g. /opt/puppetlabs/puppet/share/locale

@@ -49,7 +49,6 @@ CFACTER_RUN_DEPENDS=	facter>=3.0:sysutils/facter
 post-patch:
 	@${REINPLACE_CMD} -e "s|/etc/puppetlabs/puppet|${ETCDIR}|" \
 		${WRKSRC}/install.rb \
-		${WRKSRC}/lib/puppet.rb \
 		${WRKSRC}/lib/puppet/reference/configuration.rb \
 		${WRKSRC}/lib/puppet/util/run_mode.rb
 	@${REINPLACE_CMD} -e "s|/etc/puppetlabs/code|${ETCDIR}|" \
