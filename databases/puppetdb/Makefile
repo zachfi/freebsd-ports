@@ -1,4 +1,4 @@
-# $FreeBSD: head/databases/puppetdb/Makefile 432526 2017-01-26 17:57:08Z swills $
+# $FreeBSD: head/databases/puppetdb/Makefile 433461 2017-02-05 21:58:58Z rene $
 
 PORTNAME=	puppetdb
 PORTVERSION=	2.3.8
@@ -8,6 +8,9 @@ MASTER_SITES=	http://downloads.puppetlabs.com/puppetdb/
 
 MAINTAINER=	freebsd@zleslie.info
 COMMENT=	PuppetDB storeconfigs backend
+
+DEPRECATED=	Depends on expired sysutils/puppet38, use puppetdb[34] instead
+EXPIRATION_DATE=2017-04-05
 
 LICENSE=	APACHE20
 
