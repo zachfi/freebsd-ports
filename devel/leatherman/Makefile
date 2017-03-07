@@ -1,4 +1,4 @@
-# $FreeBSD$
+# $FreeBSD: head/devel/leatherman/Makefile 435354 2017-03-03 17:25:20Z amdmi3 $
 
 PORTNAME=	leatherman
 PORTVERSION=	0.10.1
@@ -9,15 +9,17 @@ COMMENT=	Leatherman C++ Tool library
 
 LICENSE=	APACHE20
 
-LIB_DEPENDS=	libboost_system.so:devel/boost-libs
-LIB_DEPENDS+=	libcurl.so:ftp/curl
+LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
+		libcurl.so:ftp/curl
 
-USES=		cmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	puppetlabs
+
+USES=		cmake
 USE_RUBY=	yes
+CMAKE_ARGS=	-DLEATHERMAN_SHARED:BOOL=ON
 USE_LDCONFIG=	yes
-CMAKE_ARGS+=	-DLEATHERMAN_SHARED:BOOL=ON
-PLIST_SUB+=	PORTVERSION=${PORTVERSION}
+
+PLIST_SUB=	PORTVERSION=${PORTVERSION}
 
 .include <bsd.port.mk>
