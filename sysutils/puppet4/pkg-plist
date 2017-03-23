@@ -42,6 +42,6 @@ man/man8/puppet.8.gz
 @dir(puppet,puppet,) %%ETCDIR%%/manifests
 @dir(puppet,puppet,) %%ETCDIR%%/modules
 @dir(puppet,puppet,) /var/puppet
-@dir(puppet,puppet,) share/locales
+@dir(root,wheel,0755) share/locales
 @dir(puppet,puppet,) /var/log/puppet
 @dir /var/run/puppet
