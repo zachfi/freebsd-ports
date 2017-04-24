@@ -25,6 +25,9 @@ SHEBANG_FILES=	ext/bin/puppetdb \
 		ext/cli/foreground \
 		ext/cli/import \
 		ext/cli/ssl-setup \
+		ext/cli/start \
+		ext/cli/stop \
+		ext/cli/reload \
 		ext/ezbake-functions.sh
 USE_JAVA=	yes
 NO_ARCH=	yes
