@@ -1,7 +1,7 @@
-# $FreeBSD: head/sysutils/puppet4/Makefile 430900 2017-01-08 21:57:37Z romain $
+# $FreeBSD: head/sysutils/puppet4/Makefile 437323 2017-03-30 19:07:57Z romain $
 
 PORTNAME=	puppet
-PORTVERSION=	4.9.1
+PORTVERSION=	4.9.4
 CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/puppet/
 PKGNAMESUFFIX=	4
@@ -75,7 +75,7 @@ post-patch:
 		${WRKSRC}/ext/rack/config.ru
 
 do-install:
-	@cd ${WRKSRC} && ${SETENV} PREFIX=${PREFIX} ${RUBY} ${WRKSRC}/install.rb --no-configs --destdir=${STAGEDIR} --localedir=${PREFIX}/share/locales
+	@cd ${WRKSRC} && ${SETENV} PREFIX=${PREFIX} ${RUBY} ${WRKSRC}/install.rb --no-configs --destdir=${STAGEDIR}
 
 post-install:
 	${MKDIR} ${STAGEDIR}${ETCDIR}/manifests

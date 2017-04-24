@@ -1,8 +1,8 @@
 # $FreeBSD: head/sysutils/facter/Makefile 437439 2017-04-01 15:23:30Z gerald $
 
 PORTNAME=	facter
-PORTVERSION=	3.5.1
-#PORTREVISION=	4
+PORTVERSION=	3.1.3
+PORTREVISION=	5
 CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/facter/
 
@@ -13,11 +13,7 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
-		libyaml-cpp.so:devel/yaml-cpp \
-		libcpp-hocon.so:devel/cpp-hocon
-
-BUILD_DEPENDS=	leatherman>=0:devel/leatherman \
-		cpp-hocon>=0:devel/cpp-hocon
+		libyaml-cpp.so:devel/yaml-cpp
 
 PLIST_SUB+=	PORTVERSION="${PORTVERSION}"
 
