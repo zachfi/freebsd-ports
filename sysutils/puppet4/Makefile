@@ -1,4 +1,4 @@
-# $FreeBSD: head/sysutils/puppet4/Makefile 437323 2017-03-30 19:07:57Z romain $
+# $FreeBSD: head/sysutils/puppet4/Makefile 439962 2017-05-02 17:32:57Z miwi $
 
 PORTNAME=	puppet
 PORTVERSION=	4.10.0
@@ -75,7 +75,8 @@ post-patch:
 		${WRKSRC}/ext/rack/config.ru
 
 do-install:
-	@cd ${WRKSRC} && ${SETENV} PREFIX=${PREFIX} ${RUBY} ${WRKSRC}/install.rb --no-configs --destdir=${STAGEDIR} --localedir=/var/puppet/share/locales
+	@cd ${WRKSRC} && ${SETENV} PREFIX=${PREFIX} ${RUBY} ${WRKSRC}/install.rb --no-configs --destdir=${STAGEDIR} \
+		--localedir=/var/puppet/share/locales
 
 post-install:
 	${MKDIR} ${STAGEDIR}${ETCDIR}/manifests
