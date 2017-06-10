@@ -1,8 +1,7 @@
 # $FreeBSD: head/sysutils/facter/Makefile 441494 2017-05-22 22:29:17Z linimon $
 
 PORTNAME=	facter
-PORTVERSION=	3.1.3
-PORTREVISION=	6
+PORTVERSION=	3.6.4
 CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/facter/
 
@@ -14,6 +13,9 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libyaml-cpp.so:devel/yaml-cpp
+
+BUILD_DEPENDS=	leatherman>=0:devel/leatherman \
+		cpp-hocon>=0:devel/cpp-hocon
 
 BROKEN_powerpc64=	fails to compile: collection.cc: 'stoi' was not declared in this scope
 
