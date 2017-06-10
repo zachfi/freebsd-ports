@@ -12,7 +12,8 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
-		libyaml-cpp.so:devel/yaml-cpp
+		libyaml-cpp.so:devel/yaml-cpp \
+		libcpp-hocon.so:devel/cpp-hocon
 
 BUILD_DEPENDS=	leatherman>=0:devel/leatherman \
 		cpp-hocon>=0:devel/cpp-hocon
