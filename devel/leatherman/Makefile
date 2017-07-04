@@ -1,8 +1,7 @@
 # $FreeBSD: head/devel/leatherman/Makefile 441320 2017-05-20 16:58:10Z linimon $
 
 PORTNAME=	leatherman
-PORTVERSION=	0.10.1
-PORTREVISION=	1
+PORTVERSION=	1.0.0
 CATEGORIES=	devel
 
 MAINTAINER=	jslagle@gmail.com
