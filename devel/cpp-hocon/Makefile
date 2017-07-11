@@ -8,14 +8,17 @@ MAINTAINER=	jslagle@gmail.com
 COMMENT=	C++ configuration library
 
 LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
-		leatherman_util.so:devel/leatherman
+		libleatherman_util.so:devel/leatherman
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	puppetlabs
 
+CMAKE_ARGS+=	-DBUILD_SHARED_LIBS=SHARED
+TEST_TARGET=	test
 USES=		cmake
-CMAKE_ARGS=	-DCPP_HOCON_SHARED:BOOL=ON
+USE_LDCONFIG=	yes
 
 .include <bsd.port.mk>

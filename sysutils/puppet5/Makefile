@@ -1,10 +1,10 @@
-# $FreeBSD: head/sysutils/puppet4/Makefile 445282 2017-07-07 20:05:22Z romain $
+# $FreeBSD: head/sysutils/puppet4/Makefile 439962 2017-05-02 17:32:57Z miwi $
 
 PORTNAME=	puppet
-PORTVERSION=	4.10.4
+PORTVERSION=	5.0.0
 CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/puppet/
-PKGNAMESUFFIX=	4
+PKGNAMESUFFIX=	5
 
 MAINTAINER=	freebsd@zleslie.info
 COMMENT=	Configuration management framework written in Ruby
@@ -15,12 +15,13 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BUILD_DEPENDS=	rubygem-hiera>=2.0:sysutils/rubygem-hiera \
 		rubygem-json_pure>=0:devel/rubygem-json_pure
 RUN_DEPENDS=	rubygem-hiera>=2.0:sysutils/rubygem-hiera \
+		rubygem-hocon>=0:devel/rubygem-hocon \
 		rubygem-json_pure>=0:devel/rubygem-json_pure \
 		rubygem-ruby-augeas>=0:textproc/rubygem-ruby-augeas
 
 USES=		cpe
 CPE_VENDOR=	puppetlabs
-CONFLICTS_INSTALL=	puppet5-*
+CONFLICTS_INSTALL=	puppet4-*
 NO_ARCH=	yes
 NO_BUILD=	yes
 USE_RUBY=	yes
@@ -91,8 +92,6 @@ post-install:
 		--codedir=${ETCDIR} \
 		> ${STAGEDIR}${ETCDIR}/puppet.conf-dist
 	@${ECHO} ${STAGEDIR}${RUBY_SITELIBDIR}/puppet.rb | \
-		${SED} 's,^${STAGEDIR}${PREFIX}/,,' >> ${TMPPLIST}
-	@${ECHO} ${STAGEDIR}${RUBY_SITELIBDIR}/semver.rb | \
 		${SED} 's,^${STAGEDIR}${PREFIX}/,,' >> ${TMPPLIST}
 	@${FIND} ${STAGEDIR}${RUBY_SITELIBDIR}/${PORTNAME} -type f | \
 		${SED} 's,^${STAGEDIR}${PREFIX}/,,' >> ${TMPPLIST}

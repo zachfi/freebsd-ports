@@ -1,4 +1,3 @@
-bin/extlookup2hiera
 bin/puppet
 %%ETCDIR%%/auth.conf-dist
 %%ETCDIR%%/puppet.conf-dist
@@ -7,7 +6,6 @@ bin/puppet
 %%RUBY_SITELIBDIR%%/hiera_puppet.rb
 %%RUBY_SITELIBDIR%%/puppet_x.rb
 man/man5/puppet.conf.5.gz
-man/man8/extlookup2hiera.8.gz
 man/man8/puppet-agent.8.gz
 man/man8/puppet-apply.8.gz
 man/man8/puppet-ca.8.gz
@@ -22,7 +20,6 @@ man/man8/puppet-device.8.gz
 man/man8/puppet-doc.8.gz
 man/man8/puppet-epp.8.gz
 man/man8/puppet-facts.8.gz
-man/man8/puppet-file.8.gz
 man/man8/puppet-filebucket.8.gz
 man/man8/puppet-help.8.gz
 man/man8/puppet-inspect.8.gz
@@ -35,7 +32,6 @@ man/man8/puppet-parser.8.gz
 man/man8/puppet-plugin.8.gz
 man/man8/puppet-report.8.gz
 man/man8/puppet-resource.8.gz
-man/man8/puppet-resource_type.8.gz
 man/man8/puppet-status.8.gz
 man/man8/puppet.8.gz
 /var/puppet/share/locales/config.yaml

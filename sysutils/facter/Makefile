@@ -12,11 +12,9 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
-		libyaml-cpp.so:devel/yaml-cpp \
-		libcpp-hocon.so:devel/cpp-hocon
-
-BUILD_DEPENDS=	leatherman>=0:devel/leatherman \
-		cpp-hocon>=0:devel/cpp-hocon
+		liblibcpp-hocon.so:devel/cpp-hocon \
+		libleatherman_locale.so:devel/leatherman \
+		libyaml-cpp.so:devel/yaml-cpp
 
 BROKEN_powerpc64=	fails to compile: collection.cc: 'stoi' was not declared in this scope
 
@@ -26,6 +24,10 @@ USE_LDCONFIG=	yes
 USE_RUBY=	yes
 USES=	cmake compiler:c++11-lib
 CMAKE_ARGS+=	-DMAN_PATH=${MANPREFIX}/man
+
+test: build
+	cd ${WRKSRC}/lib && bundle install --path vendor
+	cd ${WRKSRC} && ${MAKE} test
 
 CONFLICTS_INSTALL=	rubygem-facter-2*
 

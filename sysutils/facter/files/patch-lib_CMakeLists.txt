@@ -1,0 +1,13 @@
+--- lib/CMakeLists.txt.orig	2017-06-27 17:42:22 UTC
++++ lib/CMakeLists.txt
+@@ -203,6 +203,10 @@ elseif ("${CMAKE_SYSTEM_NAME}" MATCHES "
+         "src/facts/freebsd/dmi_resolver.cc"
+         "src/facts/freebsd/networking_resolver.cc"
+         "src/util/bsd/scoped_ifaddrs.cc"
++        "src/facts/freebsd/virtualization_resolver.cc"
++        "src/facts/freebsd/memory_resolver.cc"
++        "src/facts/freebsd/zfs_resolver.cc"
++        "src/facts/freebsd/zpool_resolver.cc"
+     )
+ elseif ("${CMAKE_SYSTEM_NAME}" MATCHES "OpenBSD")
+     set(LIBFACTER_PLATFORM_SOURCES

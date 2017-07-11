@@ -18,7 +18,7 @@ BUILD_DEPENDS=	rubygem-facter>=0:sysutils/rubygem-facter \
 
 USE_RC_SUBR=	puppetdb
 
-CONFLICTS_INSTALL=	puppetdb-* puppetdb4-*
+CONFLICTS_INSTALL=	puppetdb4-* puppetdb5-*
 USE_JAVA=	yes
 NO_BUILD=	yes
 JAVA_VERSION=	1.7+
