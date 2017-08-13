@@ -1,4 +1,4 @@
-# $FreeBSD: head/sysutils/puppet4/Makefile 445282 2017-07-07 20:05:22Z romain $
+# $FreeBSD: head/sysutils/puppet4/Makefile 446262 2017-07-20 15:30:52Z romain $
 
 PORTNAME=	puppet
 PORTVERSION=	4.10.4
@@ -6,7 +6,7 @@ CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/puppet/
 PKGNAMESUFFIX=	4
 
-MAINTAINER=	freebsd@zleslie.info
+MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	Configuration management framework written in Ruby
 
 LICENSE=	APACHE20
@@ -20,7 +20,7 @@ RUN_DEPENDS=	rubygem-hiera>=2.0:sysutils/rubygem-hiera \
 
 USES=		cpe
 CPE_VENDOR=	puppetlabs
-CONFLICTS_INSTALL=	puppet5-*
+CONFLICTS_INSTALL=	puppet38-* puppet37-*
 NO_ARCH=	yes
 NO_BUILD=	yes
 USE_RUBY=	yes

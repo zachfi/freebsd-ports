@@ -1,10 +1,10 @@
-# $FreeBSD: head/devel/cpp-hocon/Makefile 439934 2017-05-02 06:48:10Z jbeich $
+# $FreeBSD: head/devel/cpp-hocon/Makefile 446769 2017-07-27 17:48:33Z romain $
 
 PORTNAME=	cpp-hocon
 PORTVERSION=	0.1.5
 CATEGORIES=	devel
 
-MAINTAINER=	jslagle@gmail.com
+MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	C++ configuration library
 
 LICENSE=	APACHE20
@@ -15,6 +15,8 @@ LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	puppetlabs
+
+PLIST_SUB+=	PORTVERSION="${PORTVERSION}"
 
 CMAKE_ARGS+=	-DBUILD_SHARED_LIBS=SHARED
 TEST_TARGET=	test

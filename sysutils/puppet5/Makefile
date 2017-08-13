@@ -1,12 +1,12 @@
-# $FreeBSD: head/sysutils/puppet4/Makefile 439962 2017-05-02 17:32:57Z miwi $
+# $FreeBSD: head/sysutils/puppet5/Makefile 447831 2017-08-12 13:53:05Z romain $
 
 PORTNAME=	puppet
-PORTVERSION=	5.0.0
+PORTVERSION=	5.0.1
 CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/puppet/
 PKGNAMESUFFIX=	5
 
-MAINTAINER=	freebsd@zleslie.info
+MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	Configuration management framework written in Ruby
 
 LICENSE=	APACHE20
@@ -34,7 +34,7 @@ SUB_FILES+=	pkg-message
 SUB_LIST=	RUBY=${RUBY}
 
 OPTIONS_DEFINE=		DOCS EXAMPLES
-OPTIONS_DEFAULT=	RFACTER
+OPTIONS_DEFAULT=	CFACTER
 OPTIONS_RADIO=		FACTER
 OPTIONS_RADIO_FACTER=	CFACTER RFACTER
 
@@ -76,7 +76,7 @@ post-patch:
 		${WRKSRC}/ext/rack/config.ru
 
 do-install:
-	@cd ${WRKSRC} && ${SETENV} PREFIX=${PREFIX} ${RUBY} ${WRKSRC}/install.rb --no-configs --destdir=${STAGEDIR} \
+	@cd ${WRKSRC} && ${SETENV} PREFIX=${PREFIX} LC_ALL=C.UTF-8 ${RUBY} ${WRKSRC}/install.rb --no-configs --destdir=${STAGEDIR} \
 		--localedir=/var/puppet/share/locales
 
 post-install:
@@ -84,7 +84,7 @@ post-install:
 	${MKDIR} ${STAGEDIR}${ETCDIR}/modules
 	${MKDIR} ${STAGEDIR}/var/puppet
 	${INSTALL_DATA} ${WRKSRC}/conf/auth.conf ${STAGEDIR}${ETCDIR}/auth.conf-dist
-	${RUBY} -I ${STAGEDIR}/${RUBY_SITELIBDIR} ${STAGEDIR}${PREFIX}/bin/puppet agent --genconfig \
+	${SETENV} LC_ALL=C.UTF-8 ${RUBY} -I ${STAGEDIR}/${RUBY_SITELIBDIR} ${STAGEDIR}${PREFIX}/bin/puppet agent --genconfig \
 		--confdir=${ETCDIR} \
 		--rundir=/var/run/puppet \
 		--vardir=/var/puppet \

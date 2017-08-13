@@ -24,4 +24,4 @@ include/hocon/program_options.hpp
 include/hocon/types.hpp
 include/hocon/version.h
 lib/liblibcpp-hocon.so
-lib/liblibcpp-hocon.so.0.1.5
+lib/liblibcpp-hocon.so.%%PORTVERSION%%

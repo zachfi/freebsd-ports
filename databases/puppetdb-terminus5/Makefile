@@ -1,4 +1,4 @@
-# $FreeBSD: head/databases/puppetdb-terminus5/Makefile 439967 2017-05-02 19:02:16Z miwi $
+# $FreeBSD: head/databases/puppetdb-terminus5/Makefile 447833 2017-08-12 14:19:04Z romain $
 
 PORTNAME=	puppetdb-terminus
 PORTVERSION=	5.0.1
@@ -7,7 +7,7 @@ MASTER_SITES=	http://downloads.puppetlabs.com/puppetdb/
 PKGNAMESUFFIX=	5
 DISTNAME=	puppetdb-${PORTVERSION}
 
-MAINTAINER=	romain@FreeBSD.org
+MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	PuppetDB storeconfigs backend terminus module
 
 LICENSE=	APACHE20
