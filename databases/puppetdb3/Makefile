@@ -1,4 +1,4 @@
-# $FreeBSD: head/databases/puppetdb3/Makefile 416593 2016-06-09 11:19:58Z romain $
+# $FreeBSD: head/databases/puppetdb3/Makefile 447832 2017-08-12 14:14:12Z romain $
 
 PORTNAME=	puppetdb
 PORTVERSION=	3.2.4
@@ -6,15 +6,14 @@ CATEGORIES=	databases java
 MASTER_SITES=	http://downloads.puppetlabs.com/puppetdb/
 PKGNAMESUFFIX=	3
 
-MAINTAINER=	freebsd@zleslie.info
+MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	PuppetDB storeconfigs backend
 
 LICENSE=	APACHE20
 
 RUN_DEPENDS=	bash:shells/bash \
 		puppet:sysutils/puppet4
-BUILD_DEPENDS=	rubygem-facter>=0:sysutils/rubygem-facter \
-		rubygem-rake>=0:devel/rubygem-rake
+BUILD_DEPENDS=	rubygem-rake>=0:devel/rubygem-rake
 
 USE_RC_SUBR=	puppetdb
 
