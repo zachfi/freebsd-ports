@@ -9,6 +9,9 @@ DISTNAME=	puppetdb-${PORTVERSION}
 MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	PuppetDB storeconfigs backend terminus module
 
+DEPRECATED=	End of life upstream
+EXPIRATION_DATE=	2017-11-01
+
 LICENSE=	APACHE20
 
 BUILD_DEPENDS=	puppet:sysutils/puppet4
