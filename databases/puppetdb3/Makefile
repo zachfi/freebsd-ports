@@ -9,10 +9,10 @@ PKGNAMESUFFIX=	3
 MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	PuppetDB storeconfigs backend
 
+LICENSE=	APACHE20
+
 DEPRECATED=	End of life upstream
 EXPIRATION_DATE=	2017-11-01
-
-LICENSE=	APACHE20
 
 RUN_DEPENDS=	bash:shells/bash \
 		puppet:sysutils/puppet4
