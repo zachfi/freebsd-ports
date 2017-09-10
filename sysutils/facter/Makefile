@@ -33,6 +33,12 @@ USE_RUBY=	yes
 USES+=		compiler:c++11-lib ssl
 CMAKE_ARGS+=	-DMAN_PATH=${MANPREFIX}/man
 
+OPTIONS_DEFINE=	FACTER_JAVA
+FACTER_JAVA_DESC=	Build with Java bindings for puppetserver
+FACTER_JAVA_USE_JAVA=	yes
+FACTER_JAVA_JAVA_BUILD=	yes
+FACTER_JAVA_CMAKE_ARGS+=	-DJAVA_HOME=${JAVA_HOME}
+
 post-patch:
 	${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|g' \
 		${WRKSRC}/lib/src/facts/posix/collection.cc \
