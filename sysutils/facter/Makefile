@@ -37,6 +37,8 @@ OPTIONS_DEFINE=	FACTER_JAVA
 FACTER_JAVA_DESC=	Build with Java bindings for puppetserver
 FACTER_JAVA_USE=	java=yes
 
+.include <bsd.port.options.mk>
+
 .if ${PORT_OPTIONS:MFACTER_JAVA}
 JAVA_BUILD=	yes
 CMAKE_ARGS+=	-DJAVA_HOME=${JAVA_HOME}
