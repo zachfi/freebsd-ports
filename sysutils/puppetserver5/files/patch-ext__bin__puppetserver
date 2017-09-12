@@ -1,5 +1,5 @@
---- ext/bin/puppetserver.orig	2017-04-21 14:33:47.561092351 -0700
-+++ ext/bin/puppetserver	2017-04-21 14:36:27.512159166 -0700
+--- ext/bin/puppetserver.orig	2017-08-02 20:29:17.396790456 -0700
++++ ext/bin/puppetserver	2017-08-03 08:21:55.081573228 -0700
 @@ -1,4 +1,4 @@
 -#!/bin/bash
 +#!/usr/local/bin/bash
