@@ -12,7 +12,6 @@
 @dir(,puppet,750) etc/puppet/code
 %%DATADIR%%/puppet-server-release.jar
 %%DATADIR%%/jruby-9k.jar
-%%DATADIR%%/jruby-1_7.jar
 @(,,755) %%DATADIR%%/cli/apps/start
 @(,,755) %%DATADIR%%/cli/apps/stop
 @(,,755) %%DATADIR%%/cli/apps/reload

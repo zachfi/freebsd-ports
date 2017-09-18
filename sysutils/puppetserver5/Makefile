@@ -67,7 +67,6 @@ do-install:
 	@${MKDIR} ${STAGEDIR}/var/puppet/server
 	${INSTALL_DATA} ${WRKSRC}/puppet-server-release.jar ${STAGEDIR}${DATADIR}/puppet-server-release.jar
 	${INSTALL_DATA} ${WRKSRC}/jruby-9k.jar ${STAGEDIR}${DATADIR}/jruby-9k.jar
-	${INSTALL_DATA} ${WRKSRC}/jruby-1_7.jar ${STAGEDIR}${DATADIR}/jruby-1_7.jar
 	${INSTALL_DATA} ${WRKSRC}/ext/config/conf.d/global.conf ${STAGEDIR}${ETCDIR}/conf.d/global.conf.sample
 	${INSTALL_DATA} ${WRKSRC}/ext/config/logback.xml ${STAGEDIR}${ETCDIR}/logback.xml.sample
 	${INSTALL_DATA} ${WRKSRC}/ext/config/request-logging.xml ${STAGEDIR}${ETCDIR}/request-logging.xml.sample
