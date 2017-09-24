@@ -14,8 +14,6 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cmake
 
-.if !defined(PKGNAMEPREFIX)
-
 BROKEN_DragonFly=	DragonFly is not supported upstream
 BROKEN_powerpc64=	fails to compile: collection.cc: 'stoi' was not declared in this scope
 
@@ -37,6 +35,8 @@ OPTIONS_DEFINE=	FACTER_JAVA
 FACTER_JAVA_DESC=	Build with Java bindings for puppetserver
 FACTER_JAVA_USE=	java=yes
 
+OPTIONS_DEFAULT=rACTER_JAVA
+
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MFACTER_JAVA}
@@ -53,23 +53,10 @@ test: build
 	cd ${WRKSRC}/lib && bundle install --path vendor
 	cd ${WRKSRC} && ninja test
 
-.elif ${PKGNAMEPREFIX} == java-
-
-LIB_DEPENDS=	libfacter.so:sysutils/facter
-
-ALL_TARGET=	facter-jruby
-USE_JAVA=	yes
-JAVA_BUILD=	yes
-CMAKE_ARGS+=	-DJAVA_HOME=${JAVA_HOME}
-
-# Ignore sysutils/facter's pkg-plist by providing a non-existent file
-PLIST=		${WRKDIR}/no-plist
-PLIST_FILES=	${PREFIX}/lib/ruby/vendor_ruby/facter.jar
-
+.if ${PORT_OPTIONS:MFACTER_JAVA}
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/ruby/vendor_ruby
 	cd ${WRKSRC} && ${INSTALL_DATA} lib/facter.jar ${STAGEDIR}${PREFIX}/lib/ruby/vendor_ruby
-
 .endif
 
 .include <bsd.port.pre.mk>

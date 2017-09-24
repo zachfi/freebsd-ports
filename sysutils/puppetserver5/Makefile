@@ -29,7 +29,7 @@ GROUPS=		puppet
 SUB_LIST=	JAVA_HOME=${JAVA_HOME}
 SUB_FILES=	pkg-message
 
-OPTIONS_DEFAULT=	RFACTER
+OPTIONS_DEFAULT=	CFACTER
 OPTIONS_RADIO=		FACTER
 OPTIONS_RADIO_FACTER=	CFACTER RFACTER
 
@@ -40,7 +40,7 @@ RFACTER_BUILD_DEPENDS=	rubygem-facter>=2.0:sysutils/rubygem-facter
 RFACTER_RUN_DEPENDS=	rubygem-facter>=2.0:sysutils/rubygem-facter
 
 CFACTER_BUILD_DEPENDS=	facter>=3.0:sysutils/facter
-CFACTER_RUN_DEPENDS=	java-facter>=3.0:sysutils/java-facter
+CFACTER_RUN_DEPENDS=	facter>=3.0:sysutils/facter
 
 post-patch:
 .for file in ext/config/logback.xml ext/config/request-logging.xml \
