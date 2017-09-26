@@ -54,7 +54,7 @@ test: build
 	cd ${WRKSRC} && ninja test
 
 .if ${PORT_OPTIONS:MFACTER_JAVA}
-do-install:
+pre-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/ruby/vendor_ruby
 	cd ${WRKSRC} && ${INSTALL_DATA} lib/facter.jar ${STAGEDIR}${PREFIX}/lib/ruby/vendor_ruby
 .endif
