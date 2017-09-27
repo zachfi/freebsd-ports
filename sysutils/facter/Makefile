@@ -2,8 +2,8 @@
 
 PORTNAME=	facter
 PORTVERSION=	3.8.0
-PORTREVISION?=	2
-CATEGORIES?=	sysutils
+PORTREVISION=	1
+CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/facter/
 
 MAINTAINER=	puppet@FreeBSD.org
@@ -12,7 +12,7 @@ COMMENT=	Cross-platform library for retrieving facts from OS
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		cmake
+USES=		cmake compiler:c++11-lib ssl
 
 BROKEN_DragonFly=	DragonFly is not supported upstream
 BROKEN_powerpc64=	fails to compile: collection.cc: 'stoi' was not declared in this scope
@@ -24,25 +24,21 @@ LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libleatherman_locale.so:devel/leatherman \
 		libyaml-cpp.so:devel/yaml-cpp
 
-PLIST_SUB+=	PORTVERSION="${PORTVERSION}"
+PLIST_SUB=	PORTVERSION="${PORTVERSION}"
 
 USE_LDCONFIG=	yes
 USE_RUBY=	yes
-USES+=		compiler:c++11-lib ssl
 CMAKE_ARGS+=	-DMAN_PATH=${MANPREFIX}/man
 
 OPTIONS_DEFINE=	FACTER_JAVA
 FACTER_JAVA_DESC=	Build with Java bindings for puppetserver
 FACTER_JAVA_USE=	java=yes
+FACTER_JAVA_VARS=	JAVA_BUILD=yes
+FACTER_JAVA_CMAKE_ON=	-DJAVA_HOME=${JAVA_HOME}
 
-OPTIONS_DEFAULT=rACTER_JAVA
+OPTIONS_DEFAULT=	FACTER_JAVA
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MFACTER_JAVA}
-JAVA_BUILD=	yes
-CMAKE_ARGS+=	-DJAVA_HOME=${JAVA_HOME}
-.endif
 
 post-patch:
 	${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|g' \
@@ -53,15 +49,9 @@ test: build
 	cd ${WRKSRC}/lib && bundle install --path vendor
 	cd ${WRKSRC} && ninja test
 
-.if ${PORT_OPTIONS:MFACTER_JAVA}
-pre-install:
-	${MKDIR} ${STAGEDIR}${PREFIX}/lib/ruby/vendor_ruby
-	cd ${WRKSRC} && ${INSTALL_DATA} lib/facter.jar ${STAGEDIR}${PREFIX}/lib/ruby/vendor_ruby
-.endif
-
 .include <bsd.port.pre.mk>
 
-.if !defined(PKGNAMEPREFIX) && ${OPSYS} == FreeBSD && ${COMPILER_FEATURES:Mlibstdc++}
+.if ${OPSYS} == FreeBSD && ${COMPILER_FEATURES:Mlibstdc++}
 BROKEN=		Build with system libstdc++ is unsupported
 .endif
 
