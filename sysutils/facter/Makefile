@@ -38,6 +38,8 @@ FACTER_JAVA_CMAKE_ON=	-DJAVA_HOME=${JAVA_HOME}
 
 OPTIONS_DEFAULT=	FACTER_JAVA
 
+OPTIONS_SUB=	yes
+
 .include <bsd.port.options.mk>
 
 post-patch:
