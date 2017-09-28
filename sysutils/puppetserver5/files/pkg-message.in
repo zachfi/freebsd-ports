@@ -1,4 +1,6 @@
-Remember to add puppetserver_enable="YES" to rc.conf.
+Remember to run:
+
+sysrc puppetserver_enable=yes
 
 A note to users upgrading to 2.6 who have also modified bootstrap.cfg, please
 see the release notes for breaking changes in 2.5.
