@@ -11,6 +11,8 @@ COMMENT=	Puppet Server running in the JVM
 
 LICENSE=	APACHE20
 
+USES=		shebangfix
+
 RUN_DEPENDS=	bash>=0:shells/bash \
 		puppet5>=0:sysutils/puppet5
 BUILD_DEPENDS=	rubygem-rake>=0:devel/rubygem-rake
@@ -22,6 +24,8 @@ USE_RUBY=	yes
 NO_ARCH=	yes
 NO_BUILD=	yes
 JAVA_VERSION=	1.8+
+
+SHEBANG_FILES=  ext/bin/puppetserver
 
 USERS=		puppet
 GROUPS=		puppet
@@ -49,17 +53,17 @@ post-patch:
 	ext/config/conf.d/auth.conf ext/config/services.d/ca.cfg \
 	ext/system-config/services.d/bootstrap.cfg ext/bin/puppetserver \
 	ext/cli_defaults/cli-defaults.sh
-	@${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|" ${WRKSRC}/${file}
-	@${REINPLACE_CMD} -e "s|%%RUBY_SITELIBDIR%%|${RUBY_SITELIBDIR}|" ${WRKSRC}/${file}
-	@${REINPLACE_CMD} -e "s|%%RUBY_VER%%|${RUBY_VER}|" ${WRKSRC}/${file}
-	@${REINPLACE_CMD} -e "s|%%JAVA%%|${JAVA}|" ${WRKSRC}/${file}
-	@${REINPLACE_CMD} -e "s|%%ETCDIR%%|${ETCDIR}|" ${WRKSRC}/${file}
-	@${REINPLACE_CMD} -e "s|%%DATADIR%%|${DATADIR}|" ${WRKSRC}/${file}
+	@${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|' \
+		-e 's|%%RUBY_SITELIBDIR%%|${RUBY_SITELIBDIR}|' \
+		-e 's|%%RUBY_VER%%|${RUBY_VER}|' \
+		-e 's|%%JAVA%%|${JAVA}|' \
+		-e 's|%%ETCDIR%%|${ETCDIR}|' \
+		-e 's|%%DATADIR%%|${DATADIR}|' \
+		${WRKSRC}/${file}
 .endfor
 
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}/cli/apps
-	@${MKDIR} ${STAGEDIR}${ETCDIR}
 	@${MKDIR} ${STAGEDIR}${ETCDIR}/conf.d
 	@${MKDIR} ${STAGEDIR}${ETCDIR}/services.d
 	@${MKDIR} ${STAGEDIR}${PREFIX}/etc/puppet/code
