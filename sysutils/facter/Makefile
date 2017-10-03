@@ -1,9 +1,9 @@
-# $FreeBSD: head/sysutils/facter/Makefile 449443 2017-09-08 08:22:03Z romain $
+# $FreeBSD: head/sysutils/facter/Makefile 450560 2017-09-25 00:08:16Z jbeich $
 
 PORTNAME=	facter
-PORTVERSION=	3.8.0
-PORTREVISION=	1
-CATEGORIES=	sysutils
+PORTVERSION=	3.9.0
+PORTREVISION?=	3
+CATEGORIES?=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/facter/
 
 MAINTAINER=	puppet@FreeBSD.org
@@ -49,7 +49,7 @@ post-patch:
 
 test: build
 	cd ${WRKSRC}/lib && bundle install --path vendor
-	cd ${WRKSRC} && ninja test
+	cd ${WRKSRC} && ${MAKE_CMD} test
 
 .include <bsd.port.pre.mk>
 
