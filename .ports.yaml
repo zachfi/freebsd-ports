@@ -1,10 +1,8 @@
 ---
 svn_base_url: 'svn+ssh://repo.freebsd.org/ports/head'
 ports:
-  - databases/puppetdb3
   - databases/puppetdb4
   - databases/puppetdb5
-  - databases/puppetdb-terminus3
   - databases/puppetdb-terminus4
   - databases/puppetdb-terminus5
   - sysutils/facter
