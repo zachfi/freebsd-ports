@@ -10,3 +10,4 @@ ports:
   - sysutils/puppet5
   - sysutils/puppetserver
   - sysutils/puppetserver5
+  - sysutils/rubygem-facter
