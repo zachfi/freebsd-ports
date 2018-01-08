@@ -42,6 +42,6 @@ post-patch-ZFS_FACTS-off:
 	@${REINPLACE_CMD} -e 's/\,\ \"lib\/facter\/zpool_version.rb\"//' ${WRKSRC}/${PORTNAME}.gemspec
 
 post-install:
-	${RLN} ${STAGEDIR}/${RUBY_SITELIBDIR}/gems/facter-${PORTVERSION} ${STAGEDIR}/${RUBY_SITELIBDIR}/gems/facter
+	${RLN} ${STAGEDIR}/${GEMS_BASE_DIR}/facter-${PORTVERSION} ${STAGEDIR}/${GEMS_BASE_DIR}/facter
 
 .include <bsd.port.post.mk>
