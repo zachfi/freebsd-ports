@@ -17,7 +17,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USE_RUBY=	yes
 USES=		gem
 
-PLIST_FILES=	bin/facter
+PLIST_FILES=	bin/facter ${GEMS_DIR}/facter
 
 OPTIONS_DEFINE=	EC2_FACTS ZFS_FACTS
 EC2_FACTS_DESC=	Generate AWS EC2 related facts
@@ -42,6 +42,6 @@ post-patch-ZFS_FACTS-off:
 	@${REINPLACE_CMD} -e 's/\,\ \"lib\/facter\/zpool_version.rb\"//' ${WRKSRC}/${PORTNAME}.gemspec
 
 post-install:
-	${RLN} ${STAGEDIR}/${PREFIX}/${GEMS_BASE_DIR}/gems/facter-${PORTVERSION} ${STAGEDIR}/${PREFIX}/${GEMS_BASE_DIR}/gems/facter
+	${RLN} ${STAGEDIR}/${PREFIX}/${GEMS_DIR}/facter-${PORTVERSION} ${STAGEDIR}/${PREFIX}/${GEMS_DIR}/facter
 
 .include <bsd.port.post.mk>
