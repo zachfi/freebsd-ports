@@ -1,5 +1,5 @@
 # Created by: Tomoyuki Sakurai <cherry@trombik.org>
-# $FreeBSD: head/sysutils/rubygem-facter/Makefile 453731 2017-11-08 11:53:49Z robak $
+# $FreeBSD: head/sysutils/rubygem-facter/Makefile 458597 2018-01-10 04:42:29Z zleslie $
 
 PORTNAME=	facter
 PORTVERSION=	2.5.1
@@ -24,7 +24,6 @@ EC2_FACTS_DESC=	Generate AWS EC2 related facts
 ZFS_FACTS_DESC=	Generate ZFS related facts
 
 OPTIONS_DEFAULT=	EC2_FACTS ZFS_FACTS
-
 
 .include <bsd.port.pre.mk>
 
