@@ -1,7 +1,7 @@
-# $FreeBSD: head/sysutils/puppetserver5/Makefile 451175 2017-10-03 23:37:18Z zleslie $
+# $FreeBSD: head/sysutils/puppetserver5/Makefile 467777 2018-04-19 15:33:47Z romain $
 
 PORTNAME=	puppetserver
-PORTVERSION=	5.1.0
+PORTVERSION=	5.3.1
 CATEGORIES=	sysutils java
 MASTER_SITES=	http://downloads.puppetlabs.com/puppet/
 PKGNAMESUFFIX=	5
@@ -11,12 +11,11 @@ COMMENT=	Puppet Server running in the JVM
 
 LICENSE=	APACHE20
 
-USES=		shebangfix
-
 RUN_DEPENDS=	bash>=0:shells/bash \
 		puppet5>=0:sysutils/puppet5
 BUILD_DEPENDS=	rubygem-rake>=0:devel/rubygem-rake
 
+USES=		shebangfix
 USE_RC_SUBR=	puppetserver
 
 USE_JAVA=	yes

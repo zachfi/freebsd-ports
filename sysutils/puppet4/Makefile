@@ -1,7 +1,7 @@
-# $FreeBSD: head/sysutils/puppet4/Makefile 461209 2018-02-08 10:33:38Z romain $
+# $FreeBSD: head/sysutils/puppet4/Makefile 467776 2018-04-19 15:33:19Z romain $
 
 PORTNAME=	puppet
-PORTVERSION=	4.10.10
+PORTVERSION=	4.10.11
 CATEGORIES=	sysutils
 MASTER_SITES=	http://downloads.puppetlabs.com/puppet/
 PKGNAMESUFFIX=	4
