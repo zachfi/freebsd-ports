@@ -1,10 +1,10 @@
-# $FreeBSD: head/sysutils/puppetserver5/Makefile 483016 2018-10-26 10:25:05Z romain $
+# $FreeBSD: head/sysutils/puppetserver6/Makefile 483017 2018-10-26 10:25:54Z romain $
 
 PORTNAME=	puppetserver
-PORTVERSION=	5.3.6
+PORTVERSION=	6.0.2
 CATEGORIES=	sysutils java
 MASTER_SITES=	https://downloads.puppetlabs.com/puppet/
-PKGNAMESUFFIX=	5
+PKGNAMESUFFIX=	6
 
 MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	Puppet Server running in the JVM
@@ -12,7 +12,10 @@ COMMENT=	Puppet Server running in the JVM
 LICENSE=	APACHE20
 
 RUN_DEPENDS=	bash>=0:shells/bash \
-		puppet5>=0:sysutils/puppet5
+		jruby>=9.1:lang/jruby \
+		puppet6>=0:sysutils/puppet6 \
+		rubygem-puppetserver-ca>=1:sysutils/rubygem-puppetserver-ca \
+		rubygem-semantic_puppet>=1:devel/rubygem-semantic_puppet
 
 USES=		shebangfix
 USE_RC_SUBR=	puppetserver
@@ -23,7 +26,7 @@ NO_ARCH=	yes
 NO_BUILD=	yes
 JAVA_VERSION=	1.8+
 
-CONFLICTS_INSTALL=	puppetserver-* puppetserver6-*
+CONFLICTS_INSTALL=	puppetserver-* puppetserver5-*
 
 SHEBANG_FILES=  ext/bin/puppetserver
 
@@ -32,17 +35,6 @@ GROUPS=		puppet
 
 SUB_LIST=	JAVA_HOME=${JAVA_HOME}
 SUB_FILES=	pkg-message
-
-OPTIONS_DEFAULT=	CFACTER
-OPTIONS_RADIO=		FACTER
-OPTIONS_RADIO_FACTER=	CFACTER RFACTER
-
-RFACTER_DESC=	Use facter 2.x (written in Ruby)
-CFACTER_DESC=	Use facter 3.x (experimental rewrite in C++)
-
-RFACTER_RUN_DEPENDS=	rubygem-facter>=2.0:sysutils/rubygem-facter
-
-CFACTER_RUN_DEPENDS=	facter>=3.0:sysutils/facter
 
 post-patch:
 .for file in ext/config/logback.xml ext/config/request-logging.xml \
@@ -59,6 +51,8 @@ post-patch:
 		-e 's|%%DATADIR%%|${DATADIR}|' \
 		${WRKSRC}/${file}
 .endfor
+	@${REINPLACE_CMD} -e 's|#!/opt/puppetlabs/puppet/bin/ruby|#!${RUBY}|' \
+		${WRKSRC}/ext/cli/ca
 
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}/cli/apps
@@ -68,7 +62,6 @@ do-install:
 	@${MKDIR} ${STAGEDIR}/var/log/puppetserver
 	@${MKDIR} ${STAGEDIR}/var/puppet/server
 	${INSTALL_DATA} ${WRKSRC}/puppet-server-release.jar ${STAGEDIR}${DATADIR}/puppet-server-release.jar
-	${INSTALL_DATA} ${WRKSRC}/jruby-9k.jar ${STAGEDIR}${DATADIR}/jruby-9k.jar
 	${INSTALL_DATA} ${WRKSRC}/ext/config/conf.d/global.conf ${STAGEDIR}${ETCDIR}/conf.d/global.conf.sample
 	${INSTALL_DATA} ${WRKSRC}/ext/config/logback.xml ${STAGEDIR}${ETCDIR}/logback.xml.sample
 	${INSTALL_DATA} ${WRKSRC}/ext/config/request-logging.xml ${STAGEDIR}${ETCDIR}/request-logging.xml.sample
@@ -81,6 +74,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/ext/system-config/services.d/bootstrap.cfg ${STAGEDIR}${ETCDIR}/services.d/bootstrap.cfg.sample
 	${INSTALL_DATA} ${WRKSRC}/ext/bin/puppetserver ${STAGEDIR}${PREFIX}/bin/puppetserver
 	${INSTALL_DATA} ${WRKSRC}/ext/ezbake-functions.sh ${STAGEDIR}${DATADIR}/ezbake-functions.sh
+	${INSTALL_DATA} ${WRKSRC}/ext/cli/ca ${STAGEDIR}${DATADIR}/cli/apps/ca
 	${INSTALL_DATA} ${WRKSRC}/ext/cli/foreground ${STAGEDIR}${DATADIR}/cli/apps/foreground
 	${INSTALL_DATA} ${WRKSRC}/ext/cli/gem ${STAGEDIR}${DATADIR}/cli/apps/gem
 	${INSTALL_DATA} ${WRKSRC}/ext/cli/irb ${STAGEDIR}${DATADIR}/cli/apps/irb

@@ -1,4 +1,4 @@
---- ext/bin/puppetserver.orig	2018-09-28 11:06:23 UTC
+--- ext/bin/puppetserver.orig	2018-10-03 16:18:58 UTC
 +++ ext/bin/puppetserver
 @@ -15,6 +15,12 @@ elif [ `uname` == "OpenBSD" ] ; then
      USER="_puppet"

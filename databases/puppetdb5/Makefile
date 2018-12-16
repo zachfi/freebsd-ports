@@ -1,9 +1,9 @@
-# $FreeBSD: head/databases/puppetdb5/Makefile 469114 2018-05-05 14:29:00Z danfe $
+# $FreeBSD: head/databases/puppetdb5/Makefile 483018 2018-10-26 10:27:40Z romain $
 
 PORTNAME=	puppetdb
-PORTVERSION=	5.2.2
+PORTVERSION=	5.2.6
 CATEGORIES=	databases java
-MASTER_SITES=	http://downloads.puppetlabs.com/puppetdb/
+MASTER_SITES=	https://downloads.puppetlabs.com/puppetdb/
 PKGNAMESUFFIX=	5
 
 MAINTAINER=	puppet@FreeBSD.org
@@ -16,12 +16,13 @@ RUN_DEPENDS=	bash:shells/bash \
 
 USE_RC_SUBR=	puppetdb
 
-CONFLICTS_INSTALL=	puppetdb3-* puppetdb4-*
+CONFLICTS_INSTALL=	puppetdb4-* puppetdb5-*
 USES=		shebangfix
 SHEBANG_FILES=	ext/bin/puppetdb \
 		ext/cli/anonymize \
 		ext/cli/config-migration \
 		ext/cli/foreground \
+		ext/cli/upgrade \
 		ext/cli/ssl-setup \
 		ext/cli/start \
 		ext/cli/stop \
