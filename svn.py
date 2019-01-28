@@ -25,7 +25,7 @@ print(data)
 for port in data['ports']:
     port_url = '%s/%s' % (base_url, port)
     if not os.path.isdir(port):
-        cmd = 'svn co %s' % (port_url, port)
+        cmd = 'svn co %s %s' % (port_url, port)
     else:
         cmd = 'svn up %s' % port
 
