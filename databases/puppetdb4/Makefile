@@ -1,4 +1,4 @@
-# $FreeBSD: head/databases/puppetdb4/Makefile 447832 2017-08-12 14:14:12Z romain $
+# $FreeBSD: head/databases/puppetdb4/Makefile 491169 2019-01-25 18:08:56Z romain $
 
 PORTNAME=	puppetdb
 PORTVERSION=	4.4.0
@@ -11,12 +11,15 @@ COMMENT=	PuppetDB storeconfigs backend
 
 LICENSE=	APACHE20
 
+DEPRECATED=	Puppet 4 has reached EOL
+EXPIRATION_DATE=2019-02-28
+
 RUN_DEPENDS=	bash:shells/bash \
 		puppet:sysutils/puppet4
 
 USE_RC_SUBR=	puppetdb
 
-CONFLICTS_INSTALL=	puppetdb3-* puppetdb5-*
+CONFLICTS_INSTALL=	puppetdb5-* puppetdb6-*
 USES=		shebangfix
 SHEBANG_FILES=	ext/bin/puppetdb \
 		ext/cli/anonymize \
@@ -39,8 +42,6 @@ GROUPS=		puppetdb
 
 SUB_LIST=	JAVA_HOME=${JAVA_HOME}
 SUB_FILES=	pkg-message
-
-PKGMESSAGE=	${WRKDIR}/pkg-message
 
 post-patch:
 .for file in Makefile ext/bin/puppetdb ext/cli/ssl-setup \
