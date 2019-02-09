@@ -1,10 +1,10 @@
---- ext/cli/foreground	2019-02-08 20:39:30.579606000 -0800
-+++ ext/cli/foreground.orig	2019-02-08 20:38:48.978660000 -0800
+--- ext/cli/foreground.orig	2019-02-08 20:38:48.978660000 -0800
++++ ext/cli/foreground	2019-02-08 20:39:30.579606000 -0800
 @@ -1,6 +1,6 @@
  #!/usr/bin/env bash
  
--restartfile="/var/puppet/server/data/puppetserver/restartcounter"
-+restartfile="/opt/puppetlabs/server/data/puppetserver/restartcounter"
+-restartfile="/opt/puppetlabs/server/data/puppetserver/restartcounter"
++restartfile="/var/puppet/server/data/puppetserver/restartcounter"
  cli_defaults=${INSTALL_DIR}/cli/cli-defaults.sh
  
  if [ ! -e "${INSTALL_DIR}/ezbake-functions.sh" ]; then
