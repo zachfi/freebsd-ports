@@ -43,7 +43,7 @@ post-patch:
 	ext/config/conf.d/web-routes.conf ext/config/conf.d/webserver.conf \
 	ext/config/conf.d/auth.conf ext/config/services.d/ca.cfg \
 	ext/system-config/services.d/bootstrap.cfg ext/bin/puppetserver \
-	ext/cli_defaults/cli-defaults.sh
+	ext/cli_defaults/cli-defaults.sh ext/cli/foreground
 	@${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|' \
 		-e 's|%%RUBY_SITELIBDIR%%|${RUBY_SITELIBDIR}|' \
 		-e 's|%%RUBY_VER%%|${RUBY_VER}|' \
