@@ -1,5 +1,7 @@
 ---
 svn_base_url: 'svn+ssh://repo.freebsd.org/ports/head'
+ports_dir: '~/Org/freebsd/ports'
+dev_dir: '~/Code/ports'
 ports:
   - databases/puppetdb4
   - databases/puppetdb5
