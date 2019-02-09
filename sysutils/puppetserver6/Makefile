@@ -15,7 +15,8 @@ RUN_DEPENDS=	bash>=0:shells/bash \
 		jruby>=9.1:lang/jruby \
 		puppet6>=0:sysutils/puppet6 \
 		rubygem-puppetserver-ca>=1:sysutils/rubygem-puppetserver-ca \
-		rubygem-semantic_puppet>=1:devel/rubygem-semantic_puppet
+		rubygem-semantic_puppet>=1:devel/rubygem-semantic_puppet \
+		sudo>=1:security/sudo
 
 USES=		shebangfix
 USE_RC_SUBR=	puppetserver
