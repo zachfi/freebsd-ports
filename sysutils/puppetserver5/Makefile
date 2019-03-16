@@ -1,4 +1,4 @@
-# $FreeBSD: head/sysutils/puppetserver5/Makefile 491065 2019-01-24 00:07:48Z romain $
+# $FreeBSD: head/sysutils/puppetserver5/Makefile 495904 2019-03-16 16:12:55Z romain $
 
 PORTNAME=	puppetserver
 PORTVERSION=	5.3.7
@@ -10,6 +10,9 @@ MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	Puppet Server running in the JVM
 
 LICENSE=	APACHE20
+
+BROKEN_FreeBSD_12=	Does not start. See PR 233766
+BROKEN_FreeBSD_13=	Does not start. See PR 233766
 
 RUN_DEPENDS=	bash>=0:shells/bash \
 		puppet5>=0:sysutils/puppet5

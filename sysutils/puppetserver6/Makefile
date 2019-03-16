@@ -1,4 +1,4 @@
-# $FreeBSD: head/sysutils/puppetserver6/Makefile 493526 2019-02-21 19:34:18Z romain $
+# $FreeBSD: head/sysutils/puppetserver6/Makefile 495804 2019-03-15 19:34:29Z romain $
 
 PORTNAME=	puppetserver
 PORTVERSION=	6.2.1
@@ -10,6 +10,9 @@ MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	Puppet Server running in the JVM
 
 LICENSE=	APACHE20
+
+BROKEN_FreeBSD_12=	Does not start. See PR 233766
+BROKEN_FreeBSD_13=	Does not start. See PR 233766
 
 RUN_DEPENDS=	bash>=0:shells/bash \
 		jruby>=9.1:lang/jruby \
