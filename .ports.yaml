@@ -3,17 +3,13 @@ svn_base_url: 'svn+ssh://repo.freebsd.org/ports/head'
 ports_dir: '~/Org/freebsd/ports'
 dev_dir: '~/Code/ports'
 ports:
-  - databases/puppetdb4
   - databases/puppetdb5
   - databases/puppetdb6
-  - databases/puppetdb-terminus4
   - databases/puppetdb-terminus5
   - databases/puppetdb-terminus6
   - sysutils/facter
-  - sysutils/puppet4
   - sysutils/puppet5
   - sysutils/puppet6
-  - sysutils/puppetserver
   - sysutils/puppetserver5
   - sysutils/puppetserver6
   - sysutils/rubygem-facter

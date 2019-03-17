@@ -38,3 +38,7 @@ This will copy the entire port directory for all ports under maintenance over to
 
 7. Do some arcanist shit.
 
+With `arc diff --create` and maybe some `arc diff --update D<review id>`, I've
+been able to slog through the process easily enough, even if somewhat
+cumbersome.'
+

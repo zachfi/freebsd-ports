@@ -30,6 +30,6 @@ for port in data['ports']:
     source_path = '%s/%s/' % (dev_dir, port)
     dest_path = '%s/%s/' % (ports_dir, port)
 
-    cmd = 'rsync -aP %s %s' % (source_path, dest_path)
+    cmd = 'rsync -aP --exclude=.svn/ %s %s' % (source_path, dest_path)
 
     subprocess.run(cmd.split())
