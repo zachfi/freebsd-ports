@@ -40,5 +40,17 @@ This will copy the entire port directory for all ports under maintenance over to
 
 With `arc diff --create` and maybe some `arc diff --update D<review id>`, I've
 been able to slog through the process easily enough, even if somewhat
-cumbersome.'
+cumbersome.
 
+8. Format the commit
+  
+Once `svn st` and `svn diff` look good, its time to commit.
+
+    svn ci
+
+The commit will contain the meta data fields required.
+
+      PR:
+      Reviewed by:
+      Approved by:
+      Diff version:
