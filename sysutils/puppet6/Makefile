@@ -1,8 +1,7 @@
-# $FreeBSD: head/sysutils/puppet6/Makefile 499866 2019-04-24 17:13:25Z romain $
+# $FreeBSD: head/sysutils/puppet6/Makefile 500589 2019-05-01 10:43:04Z romain $
 
 PORTNAME=	puppet
-PORTVERSION=	6.4.1
-PORTREVISION=	1
+PORTVERSION=	6.4.2
 CATEGORIES=	sysutils
 PKGNAMESUFFIX=	6
 

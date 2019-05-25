@@ -1,8 +1,7 @@
-# $FreeBSD: head/databases/puppetdb6/Makefile 499808 2019-04-24 02:10:37Z romain $
+# $FreeBSD: head/databases/puppetdb6/Makefile 500832 2019-05-04 21:03:03Z romain $
 
 PORTNAME=	puppetdb
-PORTVERSION=	6.3.1
-PORTREVISION=	1
+PORTVERSION=	6.3.2
 CATEGORIES=	databases java
 MASTER_SITES=	https://downloads.puppetlabs.com/puppetdb/
 PKGNAMESUFFIX=	6
@@ -12,8 +11,7 @@ COMMENT=	PuppetDB storeconfigs backend
 
 LICENSE=	APACHE20
 
-RUN_DEPENDS=	bash:shells/bash \
-		puppet:sysutils/puppet6
+RUN_DEPENDS=	bash:shells/bash
 
 USE_RC_SUBR=	puppetdb
 

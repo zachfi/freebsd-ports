@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# $FreeBSD: head/databases/puppetdb5/files/puppetdb.in 416517 2016-06-07 17:59:15Z tj $
+# $FreeBSD: head/databases/puppetdb5/files/puppetdb.in 500514 2019-04-30 18:12:00Z zleslie $
 #
 # PROVIDE: puppetdb
 # REQUIRE: LOGIN
