@@ -1,7 +1,7 @@
-# $FreeBSD: head/sysutils/puppet6/Makefile 507369 2019-07-26 19:39:13Z romain $
+# $FreeBSD: head/sysutils/puppet6/Makefile 515157 2019-10-22 00:08:03Z romain $
 
 PORTNAME=	puppet
-PORTVERSION=	6.7.2
+PORTVERSION=	6.10.1
 CATEGORIES=	sysutils
 PKGNAMESUFFIX=	6
 
@@ -18,6 +18,7 @@ BUILD_DEPENDS=	facter>=3.0:sysutils/facter \
 		rubygem-json_pure>=0:devel/rubygem-json_pure \
 		rubygem-semantic_puppet>=1:devel/rubygem-semantic_puppet
 RUN_DEPENDS=	facter>=3.0:sysutils/facter \
+		rubygem-concurrent-ruby>0:devel/rubygem-concurrent-ruby \
 		rubygem-gettext-setup>=0:devel/rubygem-gettext-setup \
 		rubygem-hiera>=2.0:sysutils/rubygem-hiera \
 		rubygem-hocon>=0:devel/rubygem-hocon \
