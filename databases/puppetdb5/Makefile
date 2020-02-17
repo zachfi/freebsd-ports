@@ -1,7 +1,7 @@
-# $FreeBSD: head/databases/puppetdb5/Makefile 515716 2019-10-26 17:30:47Z romain $
+# $FreeBSD: head/databases/puppetdb5/Makefile 523394 2020-01-18 02:58:40Z romain $
 
 PORTNAME=	puppetdb
-PORTVERSION=	5.2.11
+PORTVERSION=	5.2.12
 CATEGORIES=	databases java
 MASTER_SITES=	https://downloads.puppetlabs.com/puppetdb/
 PKGNAMESUFFIX=	5
@@ -30,7 +30,6 @@ SHEBANG_FILES=	ext/bin/puppetdb \
 USE_JAVA=	yes
 NO_ARCH=	yes
 NO_BUILD=	yes
-JAVA_VERSION=	1.7+
 
 USERS=		puppetdb
 GROUPS=		puppetdb
