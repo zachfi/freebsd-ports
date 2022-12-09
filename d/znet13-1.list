@@ -1,6 +1,5 @@
 www/minio
 www/minio-client
-security/sssd
 comms/minicom
 sysutils/pftop
 misc/nnn
@@ -83,3 +82,6 @@ textproc/fzf
 www/aria2
 www/w3m
 net/wireguard
+net/nss_ldap
+security/pam_ldap
+net/openldap24-client
